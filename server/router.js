@@ -3,7 +3,7 @@ const path = require('path')
 const AuthenticationRouter = require('./routes/Authentication/authentication.router');
 const passport = require('passport');
 const passportService = require('./services/passport');
-const requireAuth = passport.authenticate('jwt', { session: false });
+// const requireAuth = passport.authenticate('jwt', { session: false });
 
 console.log('>>> router.js <<< loaded 1');
 
@@ -11,15 +11,22 @@ module.exports = function(app) {
 
   console.log('>>> router.js <<< loaded 2');
 
-  // app.get('/', function(req, res) {
-  app.get('/', requireAuth, function(req, res) {
 
-    res.send({ message: 'Super secret code is ABC123' });
+  // requireAuth: testing whether user is JWT authenticated
+  // requireAuth: identify if user is already JWT authenticated
+  // JWT ? localsToView == authenticated : localsToView == !authenticated
+  // 
 
+  app.get('/', function(req, res) {
+  // app.get('/', requireAuth, function(req, res) {
+    ///res.send({ message: 'Super secret code is ABC123' });
+    res.sendFile(res.locals.publicViews + '/index.html');
   });
+
 
   console.log('>>> router.js <<< passed routes');
   app.use(AuthenticationRouter);
+
 
 }
 
@@ -51,3 +58,4 @@ app.post('/profile', passport.authenticate('jwt', { session: false }),
     }
 );
 */
+

@@ -19,10 +19,16 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
 
-app.use(express.static(path.join(__dirname, '../client/public')));
+// app.use('/public', express.static('../public'));
+// app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../public')))
+
+let foo = path.join(__dirname, '../public');
+console.log('SSSSSSSSSSS: ', foo)
 
 app.use(function (req, res, next) {
   console.log('>>>>>>>>>>> GOING THROUGH APP NOW <<<<<<<<<<<<<');
+  res.locals.publicViews = path.join(__dirname, 'public')
   console.log('REQ.method +++++: ', req.method);
   console.log('REQ.url ++++++++: ', req.url);
   console.log('REQ.headers ++++: ', req.headers)
