@@ -1,5 +1,6 @@
 
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
 
@@ -7,24 +8,25 @@ module.exports = {
 
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'client/public')
+    path: path.resolve(__dirname, './public/assets'),
+    publicPath: '/assets',
   },
 
   module: {
     rules: [
       {
         test: /\.(js)$/,
-        exclude: '/node_modules',
+        exclude: [/node_modules/],
         loader: 'babel-loader',
         options: {
-          presets: ['react', 'es2015', 'stage-1'],
+          presets: ['es2015', 'react', 'stage-1'],
         },
       },
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader',
       },
-    ],
+    ]
   },
 
   resolve: {
@@ -34,6 +36,5 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './',
-  },
-  
+  }
 };
