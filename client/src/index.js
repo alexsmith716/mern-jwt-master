@@ -23,9 +23,15 @@ const store = createStoreWithMiddleware(reducers);
 // before the application is rendered
 const token = localStorage.getItem('token');
 
+console.log('>>>> client > INDEX.js <<<< loaded');
+
 if (token) {
   store.dispatch({ type: AUTH_USER });
 }
+
+console.log('>>>> client > index.js <<<< token?': token);
+console.log('>>>> client > index.js <<<< AUTH_USER?': AUTH_USER);
+console.log('>>>> client > index.js <<<< store': store);
 
 ReactDOM.render(
   <Provider store={store}>
