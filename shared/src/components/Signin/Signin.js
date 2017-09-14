@@ -4,6 +4,10 @@ import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 import { signinUser } from '../../store/Authentication/authentication.actions';
 
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+console.log('>>>> client > Signin.js <<<< loaded');
+
 class Signin extends Component {
 
   constructor(props) {
@@ -67,6 +71,8 @@ class Signin extends Component {
   }
 }
 
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 const mapStateToProps = state => ({
   errorMessage: state.auth.error,
 });
@@ -98,6 +104,8 @@ Signin.propTypes = {
   // signinUser: PropTypes.func.isRequired,
   // errorMessage: PropTypes.string.isRequired,
 // };
+
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 export default reduxForm({
   validate,

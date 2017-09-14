@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 import { signupUser } from '../../store/Authentication/authentication.actions';
 import styles from './Signup.css';
 
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+console.log('>>>> client > Signup.js <<<< loaded');
+
 class Signup extends Component {
   constructor(props) {
     super(props);
@@ -69,6 +73,8 @@ class Signup extends Component {
   }
 }
 
+
+
 const mapStateToProps = state => ({
   errorMessage: state.auth.error,
 });
@@ -108,6 +114,8 @@ Signup.propTypes = {
   // signupUser: PropTypes.func.isRequired,
   // errorMessage: PropTypes.string.isRequired,
 // };
+
+
 
 export default reduxForm({
   validate,

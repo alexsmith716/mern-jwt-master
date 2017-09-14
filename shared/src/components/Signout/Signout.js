@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { signoutUser } from '../../store/Authentication/authentication.actions';
 
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+console.log('>>>> client > Signout.js <<<< loaded');
+
 class Signout extends Component {
   componentWillMount() {
     this.props.signoutUser();
@@ -14,6 +18,8 @@ class Signout extends Component {
     );
   }
 }
+
+
 
 Signout.propTypes = {
   signoutUser: PropTypes.func.isRequired,
