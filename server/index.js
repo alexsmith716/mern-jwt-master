@@ -23,9 +23,6 @@ app.use(bodyParser.json({ type: '*/*' }));
 // app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../public')))
 
-let foo = path.join(__dirname, '../public');
-console.log('SSSSSSSSSSS: ', foo)
-
 app.use(function (req, res, next) {
   console.log('>>>>>>>>>>> GOING THROUGH APP NOW <<<<<<<<<<<<<');
   res.locals.publicViews = path.join(__dirname, 'public')

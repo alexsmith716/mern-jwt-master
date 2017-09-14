@@ -13,6 +13,7 @@ const localOptions = {
 };
 
 const localLogin = new LocalStrategy(localOptions, function(email, password, done) {
+  
   console.log('>>> passport.js <<< localLogin');
   // Verify this email and password, call done with the user
   // if it is the correct email and password
@@ -68,11 +69,11 @@ const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
     }
 
     if (user) {
-
+      console.log('>>> passport.js <<< user: ', user);
       done(null, user);
 
     } else {
-
+      console.log('>>> passport.js <<< err3: ');
       done(null, false);
 
     }
