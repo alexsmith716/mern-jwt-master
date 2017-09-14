@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './Header.css';
 
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+console.log('>>>> client > Header.js <<<< loaded');
+
 class Header extends Component {
+
   renderLinks() {
     if (this.props.authenticated) {
       return (
@@ -36,7 +41,10 @@ class Header extends Component {
       </nav>
     );
   }
+
 }
+
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 const mapStateToProps = ({ auth }) => ({
   authenticated: auth.authenticated,
@@ -49,5 +57,7 @@ Header.propTypes = {
 Header.defaultProps = {
   authenticated: false,
 };
+
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 export default connect(mapStateToProps)(Header);
