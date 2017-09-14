@@ -5,17 +5,28 @@ const passport = require('passport');
 const passportService = require('./services/passport');
 const requireAuth = passport.authenticate('jwt', { session: false });
 
-console.log('>>> router.js <<< loaded 1');
-
 module.exports = function(app) {
 
   console.log('>>> router.js <<< in app');
 
-  app.get('/', function(req, res) {
+  // evaluate if user request has JWT && if provided JWT authenticates
+  // send appropriate res (user/!user) locals with route/response
+  // set client-side view/state/context changes for above response
+  // need to further review react method for above response
+
+  app.get('/', function (req, res) {
   // app.get('/', requireAuth, function(req, res) {
     // res.send({ message: 'Super secret code is ABC123' });
     res.sendFile(res.locals.publicViews + '/index.html');
   });
+
+  app.get('/signin', function (req, res) {
+    res.send('>>>>>>> app.get /signin <<<<<<<<<<');
+  });
+
+  app.get('/signup', function (req, res) {
+    res.send('>>>>>>> app.get /signup <<<<<<<<<<');
+  })
 
   app.use(AuthenticationRouter);
 

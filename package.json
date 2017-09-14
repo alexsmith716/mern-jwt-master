@@ -6,7 +6,7 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "build:client": "webpack --progress --colors --config webpack.config.js",
+    "build": "webpack --progress --colors --config webpack.config.js",
     "start": "nodemon ./server/index.js"
   },
   "dependencies": {

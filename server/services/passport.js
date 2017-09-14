@@ -5,8 +5,6 @@ const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const LocalStrategy = require('passport-local');
 
-console.log('>>> passport.js <<< loaded');
-
 // Create local strategy
 const localOptions = {
   usernameField: 'email'
@@ -44,6 +42,7 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
         return done(null, false);
       }
 
+      console.log('>>> passport.js <<< user');
       return done(null, user);
     });
   });
